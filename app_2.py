@@ -190,7 +190,7 @@ if __name__ == '__main__':
             table = knn(test_point, n)
             for item, link in table:
                 # Displays item title with link to imdb
-                st.markdown(f"{item}")
+                st.markdown(f"[{item}]({link})")
     elif app_options == apps[2]:
         options = st.multiselect('Select category:', genres)
         if options:
@@ -202,7 +202,7 @@ if __name__ == '__main__':
             table = knn(test_point, n)
             for item, link in table:
                 # Displays item title with link to imdb
-                st.markdown(f"{item}")
+                st.markdown(f"[{item}]({link})")
 
         else:
             st.write("This is a simple Movie Recommender application. "
