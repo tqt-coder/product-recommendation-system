@@ -969,13 +969,13 @@ input.mail_bt::placeholder {
     width: 50px;
 }
 
-.dropdown.dropdown-item {
+.dropdown-item {
     margin: 0;
     padding: 0;
     width: 400px;
 }
 
-.dropdown.dropdown-item:hover {
+.dropdown-item:hover {
     margin: 0;
     background-color: transparent;
 }
@@ -983,6 +983,20 @@ input.mail_bt::placeholder {
 .input-group-custom {
     display: flex;
     justify-content: flex-start;
+}
+
+icon-shape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.icon-sm {
+    width: 2rem;
+    height: 2rem;
+
 }
 
 /* copyright section end */

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>Eflyer</title>
+    <title>Home page</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -23,7 +23,8 @@
     <!-- fevicon -->
     <link rel="icon" href="{{ url_for('static',filename='images/fevicon.png') }}" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/jquery.mCustomScrollbar.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="{{ url_for('static',filename='css/jquery.mCustomScrollbar.min.css') }}">
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <!-- fonts -->
@@ -79,50 +80,46 @@
             <div class="container">
                 <div class="containt_main">
 
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danh mục
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div>
+                    <select class="browser-default custom-select dropdown-item">
+                        <option selected>Danh mục</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
                     <form action="./recommendation" method="post" class="main">
                         <!-- Another variation with a button -->
                         <div class="input-group-custom">
-                            <div class="dropdown dropdown-item">
-                                <button class="btn btn-secondary dropdown-toggle-1 dropdow-item-btn" type="button"
-                                    id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">Chọn sản phẩm
-                                </button>
-                                <select class="dropdown-menu dropdown-menu-item" aria-labelledby="dropdownMenuButton2">
-                                    <option class="dropdown-item" href="#">A</option>
-                                    <option class="dropdown-item" href="#">B</option>
-                                    <option class="dropdown-item" href="#">Something else here</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="buynow_bt"><a href="#">Dự đoán</a></button>
 
+                            <select class="browser-default custom-select dropdown-item" name="title">
+                                <option selected>Chọn sản phẩm</option>
+                                <option value="Colonia">Colonia</option>
+                                <option value="Blu Mediterraneo MINIATURE Set">Blu Mediterraneo MINIATURE Set</option>
+                                <option value="Mirto di Panarea">Mirto di Panarea</option>
+                            </select>
+
+                        </div>
+                        <button type="submit" class="buynow_bt">Dự đoán</button>
+                        <div class="row">
+
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+
+                                    <div class="input-group w-auto justify-content-end align-items-center">
+                                        <input type="button" value="-"
+                                            class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "
+                                            data-field="quantity">
+                                        <input type="number" step="1" max="10" value="1" name="quantity"
+                                            class="quantity-field border-0 text-center w-25">
+                                        <input type="button" value="+"
+                                            class="button-plus border rounded-circle icon-shape icon-sm lh-0"
+                                            data-field="quantity">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                     </form>
-                    <div class="header_box">
 
-                        <div class="login_menu">
-                            <ul>
-                                <li><a href="#">
-                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                        <span class="padding_10">Giỏ hàng</span></a>
-                                </li>
-                                <li><a href="#">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
-                                        <span class="padding_10">Tài khoản</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -201,8 +198,8 @@
     </div>
     <!-- copyright section end -->
     <!-- Javascript files-->
-    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"  ></script>
-    
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+
     <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
     <script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static',filename='js/jquery-3.0.0.min.js') }}"></script>
