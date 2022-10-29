@@ -387,7 +387,7 @@ button {
     flex: 1;
     margin: 0px 30px;
     display: inline-block;
-    order: 2;
+    /* order: 2; */
 }
 
 
@@ -493,6 +493,11 @@ a:hover {
     width: 170px;
     margin: 0 auto;
     padding-top: 30px;
+}
+
+.btn-predict {
+    padding: 10px;
+    height: fit-content;
 }
 
 .buynow_bt a {

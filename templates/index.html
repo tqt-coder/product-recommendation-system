@@ -3,43 +3,43 @@
 
 <head>
     <!-- basic -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- mobile metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <!-- site metas -->
     <title>Home page</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
     <!-- bootstrap css -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}" />
     <!-- style css -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}" />
     <!-- Responsive-->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/responsive.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/responsive.css') }}" />
     <!-- fevicon -->
     <link rel="icon" href="{{ url_for('static',filename='images/fevicon.png') }}" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" type="text/css"
-        href="{{ url_for('static',filename='css/jquery.mCustomScrollbar.min.css') }}">
+        href="{{ url_for('static',filename='css/jquery.mCustomScrollbar.min.css') }}" />
     <!-- Tweaks for older IEs-->
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
     <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" />
     <!-- font awesome -->
     <link rel="stylesheet" type="text/css"
-        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <!--  -->
     <!-- owl stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:400,700&display=swap&subset=latin-ext"
-        rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/owl.theme.default.min.css') }}">
+        rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/owl.carousel.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/owl.theme.default.min.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
-        media="screen">
+        media="screen" />
 </head>
 
 <body>
@@ -69,7 +69,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="logo"></a></div>
+                        <div class="logo"></div>
                     </div>
                 </div>
             </div>
@@ -79,47 +79,51 @@
         <div class="header_section">
             <div class="container">
                 <div class="containt_main">
-
-                    <select class="browser-default custom-select dropdown-item">
-                        <option>----------Danh mục-----------</option>
-                        {% for item in category %}
-                        <option value="{{ item }}">{{ item }}</option>
-                        {% endfor %}
-                    </select>
-                    <form action="./recommendation" method="post" class="main">
-                        <!-- Another variation with a button -->
-                        <div class="input-group-custom">
-
-                            <select class="browser-default custom-select dropdown-item" name="title">
-                                <option>----------Sản phẩm-----------</option>
-                                {% for product in listProducts %}
-                                <option value="{{ product }}">{{ product }}</option>
+                    <div class="row">
+                        <div class="col-md-5 col-sm-12 p-sm-2">
+                            <select class="browser-default custom-select dropdown-item text-center w-100 p-2">
+                                <option>----------Danh mục-----------</option>
+                                {% for item in category %}
+                                <option value="{{ item }}" class="text-left py-2 pl-2">
+                                    {{ item }}
+                                </option>
                                 {% endfor %}
                             </select>
-
                         </div>
-                        <button type="submit" class="buynow_bt">Dự đoán</button>
-                        <div class="row">
-
-                            <div class="col-12">
-                                <div class="d-flex justify-content-between">
-
+                        <div class="col-md-5 col-sm-12 p-sm-2">
+                            <form action="./recommendation" method="post" class="main m-0" id="form">
+                                <!-- Another variation with a button -->
+                                <div class="input-group-custom">
+                                    <select class="browser-default custom-select dropdown-item text-center w-100 p-2"
+                                        name="title">
+                                        <option>----------Sản phẩm-----------</option>
+                                        {% for product in listProducts %}
+                                        <option value="{{ product }}" class="text-left py-2 pl-2">
+                                            {{ product }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="d-flex justify-content-between pt-2">
                                     <div class="input-group w-auto justify-content-end align-items-center">
                                         <input type="button" value="-"
-                                            class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "
-                                            data-field="quantity">
+                                            class="button-minus border rounded-circle icon-shape icon-sm mx-1 mr-2 d-inline-block"
+                                            data-field="quantity" />
                                         <input type="number" step="1" max="10" value="1" name="quantity"
-                                            class="quantity-field border-0 text-center w-25">
+                                            class="quantity-field border-0 text-center w-25 text-center" />
                                         <input type="button" value="+"
-                                            class="button-plus border rounded-circle icon-shape icon-sm lh-0"
-                                            data-field="quantity">
+                                            class="button-plus border rounded-circle icon-shape icon-sm lh-0 ml-2 d-inline-block"
+                                            data-field="quantity" />
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
-
-                    </form>
-
+                        <div class="col-md-2 col-sm-12 p-sm-2">
+                            <button type="submit" class="btn btn-secondary" form="form">
+                                Dự đoán
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -133,7 +137,9 @@
                         <div class="carousel-item active">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h1 class="banner_taital"><br>Hãy chọn sản phẩm yêu thích của bạn</h1>
+                                    <h1 class="banner_taital">
+                                        <br />Hãy chọn sản phẩm yêu thích của bạn
+                                    </h1>
                                     <div class="buynow_bt"><a href="#">Mua ngay</a></div>
                                 </div>
                             </div>
@@ -141,9 +147,7 @@
                         <div class="carousel-item">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h1 class="banner_taital">
-                                        <br>Website uy tính số 1
-                                    </h1>
+                                    <h1 class="banner_taital"><br />Website uy tính số 1</h1>
 
                                     <div class="buynow_bt"><a href="#">Mua ngay</a></div>
                                 </div>
@@ -152,7 +156,9 @@
                         <div class="carousel-item">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h1 class="banner_taital"><br>Sale off cho tất cả sản phẩm</h1>
+                                    <h1 class="banner_taital">
+                                        <br />Sale off cho tất cả sản phẩm
+                                    </h1>
                                     <div class="buynow_bt"><a href="#">Mua ngay</a></div>
                                 </div>
                             </div>
@@ -174,7 +180,7 @@
         <div class="container">
             <!-- <div class="footer_logo"><a href="index.html"><img src="images/footer-logo.png"></a></div> -->
             <div class="input_bt">
-                <input type="text" class="mail_bt" placeholder="Email của bạn" name="email">
+                <input type="text" class="mail_bt" placeholder="Email của bạn" name="email" />
                 <span class="subscribe_bt" id="basic-addon2"><a href="#">Subscribe</a></span>
             </div>
             <div class="footer_menu">
@@ -186,28 +192,29 @@
                     <li><a href="#">Chăm sóc khách hàng</a></li>
                 </ul>
             </div>
-
         </div>
     </div>
     <!-- footer section end -->
     <!-- copyright section start -->
     <div class="copyright_section">
         <div class="container">
-            <p class="copyright_text">@2022 Tiểu luận chuyên ngành Kỹ thuật dữ liệu</p>
+            <p class="copyright_text">
+                @2022 Tiểu luận chuyên ngành Kỹ thuật dữ liệu
+            </p>
         </div>
     </div>
     <!-- copyright section end -->
     <!-- Javascript files-->
-    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}" defer></script>
 
-    <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/jquery-3.0.0.min.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/plugin.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/popper.min.js') }}" defer></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}" defer></script>
+    <script src="{{ url_for('static',filename='js/jquery-3.0.0.min.js') }}" defer></script>
+    <script src="{{ url_for('static',filename='js/plugin.js') }}" defer></script>
     <!-- sidebar -->
-    <script src="{{ url_for('static',filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/custom.js') }}"></script>
-    <script>
+    <script src="{{ url_for('static',filename='js/jquery.mCustomScrollbar.concat.min.js') }}" defer></script>
+    <script src="{{ url_for('static',filename='js/custom.js') }}" defer></script>
+    <script defer>
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
         }

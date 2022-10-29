@@ -5,6 +5,8 @@ import streamlit as st
 import json
 import time
 import text_base_lib as lib
+from Classifier import KNearestNeighbours
+from operator import itemgetter
 
 with open(r'titles2.json', 'r+', encoding='utf-8') as f:
     product_titles = json.load(f)
