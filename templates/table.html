@@ -27,18 +27,22 @@
                                         <table class="table table-borderless text-white mb-0">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col" style="text-align: center">NO</th>
-                                                    <th scope="col" style="text-align: center">Product Name</th>
-                                                    <th scope="col" style="text-align: center">Ratting</th>
+                                                    <th scope="col" class="w-25" style="text-align: center">No</th>
+                                                    <th scope="col" class="w-50" style="text-align: left">Product Name
+                                                    </th>
+                                                    <th scope="col" class="w-25" style="text-align: center">Ratting</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {% for item in table %}
                                                 <tr>
-                                                    <th scope="row" style="text-align: center">{{item[3]}}</th>
-                                                    <td style="text-align: center"><a href="{{item[1]}}"
-                                                            target="_blank" style="color: white; text-decoration: none;">{{item[0]}}</a></td>
-                                                    <td style="text-align: center">{{ item[2] }}</td>
+                                                    <th scope="row" class="w-25" style="text-align: center">{{item[3]}}
+                                                    </th>
+                                                    <td class="w-50" style="text-align: left"><a href="{{item[1]}}"
+                                                            target="_blank"
+                                                            style="color: white; text-decoration: none;">{{item[0]}}</a>
+                                                    </td>
+                                                    <td class="w-25" style="text-align: center">{{ item[2] }}</td>
                                                 </tr>
                                                 {% endfor %}
                                             </tbody>
