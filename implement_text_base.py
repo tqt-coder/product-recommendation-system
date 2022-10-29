@@ -1,9 +1,6 @@
-# some_file.py
-
 import time
 import text_base_lib as lib
 import sys
-# caution: path[0] is reserved for script path (or '' in REPL)
 sys.path.insert(
     1, 'C:/Users/tranq/Documents/Semeter1_2022_2023/Semeter1_2022_2023/TLCN/product-recommend-system')
 
