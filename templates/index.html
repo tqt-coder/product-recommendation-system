@@ -81,20 +81,20 @@
                 <div class="containt_main">
 
                     <select class="browser-default custom-select dropdown-item">
-                        <option selected>Danh mục</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option>----------Danh mục-----------</option>
+                        {% for item in category %}
+                        <option value="{{ item }}">{{ item }}</option>
+                        {% endfor %}
                     </select>
                     <form action="./recommendation" method="post" class="main">
                         <!-- Another variation with a button -->
                         <div class="input-group-custom">
 
                             <select class="browser-default custom-select dropdown-item" name="title">
-                                <option selected>Chọn sản phẩm</option>
-                                <option value="Colonia">Colonia</option>
-                                <option value="Blu Mediterraneo MINIATURE Set">Blu Mediterraneo MINIATURE Set</option>
-                                <option value="Mirto di Panarea">Mirto di Panarea</option>
+                                <option>----------Sản phẩm-----------</option>
+                                {% for product in listProducts %}
+                                <option value="{{ product }}">{{ product }}</option>
+                                {% endfor %}
                             </select>
 
                         </div>
