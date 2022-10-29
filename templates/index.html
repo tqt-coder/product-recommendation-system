@@ -21,7 +21,7 @@
     <!-- Responsive-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/responsive.css') }}">
     <!-- fevicon -->
-    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <link rel="icon" href="{{ url_for('static',filename='images/fevicon.png') }}" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/jquery.mCustomScrollbar.min.css') }}">
     <!-- Tweaks for older IEs-->
@@ -201,14 +201,15 @@
     </div>
     <!-- copyright section end -->
     <!-- Javascript files-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/plugin.js"></script>
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"  ></script>
+    
+    <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery-3.0.0.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/plugin.js') }}"></script>
     <!-- sidebar -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="{{ url_for('static',filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/custom.js') }}"></script>
     <script>
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
