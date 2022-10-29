@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from turtle import title
+from flask import Flask, render_template, request
 from msilib.schema import tables
 import streamlit as st
 import json
@@ -29,7 +30,15 @@ def recommandation(title, len):
 
 @app.route('/')
 def homePage():
-    table = recommandation("Colonia", 6)
+    return render_template("./login.html")
+
+
+@app.route('/recommendation', methods=['POST'])
+def resutl():
+    title = request.form['title']
+    quantity = request.form['quantity']
+
+    table = recommandation(title, int(quantity) + 1)
     a = ""
     for item, link in table:
         a = a + f"[{item}]({link})"
