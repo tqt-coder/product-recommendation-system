@@ -33,11 +33,13 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                {% for item in table %}
                                                 <tr>
                                                     <th scope="row" style="text-align: center">1</th>
-                                                    <td style="text-align: center">Banh</td>
-                                                    <td style="text-align: center">3.1</td>
+                                                    <td style="text-align: center">{{ item[0] }}</td>
+                                                    <td style="text-align: center">{{ item[1] }}</td>
                                                 </tr>
+                                                {% endfor %}
                                             </tbody>
                                         </table>
                                     </div>

@@ -183,10 +183,10 @@ def resutl():
     quantity = request.form['quantity']
     if title != None and quantity != None:
         table = recommandation(title, int(quantity) + 1)
-        str = ""
-        for item, link in table:
-            str = str + f"[{item}]({link})"
-        return str
+        # str = ""
+        # for item, link in table:
+        #     str = str + f"[{item}]({link})"
+        return render_template("./table.html", table=table)
     else:
         return render_template("./index.html", listProducts=products, category=genres)
 
