@@ -39,10 +39,10 @@ def resutl():
     quantity = request.form['quantity']
 
     table = recommandation(title, int(quantity) + 1)
-    a = ""
+    str = ""
     for item, link in table:
-        a = a + f"[{item}]({link})"
-    return a
+        str = str + f"[{item}]({link})"
+    return str
 
 
 if __name__ == '__main__':

@@ -1,19 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <style>
+        icon-shape {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .icon-sm {
+            width: 2rem;
+            height: 2rem;
+
+        }
+    </style>
 </head>
 
 <body>
-    <form action="./recommendation" method="post">
+    <!-- <form action="./recommendation" method="post">
         <h2>Tên sản phẩm</h2><input type="text" name="title">
         <h2>Số sản phẩm giống</h2><input type="text" name="quantity">
         <button>Recommendation</button>
-    </form>
+    </form> -->
+    <div class="container">
+        <div class="row mb-8 justify-content-center ">
+            <div class="col-md-6 col-12">
+                <div class="mb-4 border-bottom pb-2">
+                    <h4 class="mb-0">Disposition & Amenities</h4>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <p class="text-dark">Bedroom</p>
+                                </div>
+                                <div class="input-group w-auto justify-content-end align-items-center">
+                                    <input type="button" value="-"
+                                        class="button-minus border rounded-circle  icon-shape icon-sm mx-1 "
+                                        data-field="quantity">
+                                    <input type="number" step="1" max="10" value="1" name="quantity"
+                                        class="quantity-field border-0 text-center w-25">
+                                    <input type="button" value="+"
+                                        class="button-plus border rounded-circle icon-shape icon-sm lh-0"
+                                        data-field="quantity">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function incrementValue(e) {
+                e.preventDefault();
+                var fieldName = $(e.target).data('field');
+                var parent = $(e.target).closest('div');
+                var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+                if (!isNaN(currentVal)) {
+                    parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
+                } else {
+                    parent.find('input[name=' + fieldName + ']').val(0);
+                }
+            }
+
+            function decrementValue(e) {
+                e.preventDefault();
+                var fieldName = $(e.target).data('field');
+                var parent = $(e.target).closest('div');
+                var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+                if (!isNaN(currentVal) && currentVal > 0) {
+                    parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
+                } else {
+                    parent.find('input[name=' + fieldName + ']').val(0);
+                }
+            }
+
+            $('.input-group').on('click', '.button-plus', function (e) {
+                incrementValue(e);
+            });
+
+            $('.input-group').on('click', '.button-minus', function (e) {
+                decrementValue(e);
+            });
+
+        </script>
 </body>
 
 </html>
