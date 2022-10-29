@@ -171,7 +171,7 @@ def recommandation(title, len):
     table = list()
     for j in top_items_indices:
         table.append([lib.data['name'][int(j)], lib.data['URL']
-                     [int(j)], lib.data['rating'][int(j)]])
+                     [int(j)], lib.data['rating'][int(j)], [int(j)]])
     return table
 
 
