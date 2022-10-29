@@ -36,8 +36,9 @@
                                                 {% for item in table %}
                                                 <tr>
                                                     <th scope="row" style="text-align: center">1</th>
-                                                    <td style="text-align: center">{{ item[0] }}</td>
-                                                    <td style="text-align: center">{{ item[1] }}</td>
+                                                    <td style="text-align: center"><a href="{{item[1]}}"
+                                                            target="_blank">{{item[0]}}</a></td>
+                                                    <td style="text-align: center">{{ item[2] }}</td>
                                                 </tr>
                                                 {% endfor %}
                                             </tbody>
