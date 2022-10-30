@@ -158,9 +158,8 @@ genres = ['Accessories',
           'Value & Gift Sets',
           'Wellness',
           'no category']
-models = ['Content-based filtering',
-          'Collaborative filtering',
-        ]
+
+models = ['Content-based filtering', 'Collaborative filtering']
 products = [title[0] for title in product_titles]
 options = []
 
