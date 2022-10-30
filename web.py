@@ -10,6 +10,9 @@ from operator import itemgetter
 
 with open(r'titles2.json', 'r+', encoding='utf-8') as f:
     product_titles = json.load(f)
+with open(r'data2.json', 'r+', encoding='utf-8') as f:
+    data = json.load(f)
+
 app = Flask(__name__)
 genres = ['Accessories',
           'After Sun Care',
@@ -155,6 +158,18 @@ genres = ['Accessories',
           'Wellness',
           'no category']
 products = [title[0] for title in product_titles]
+options = []
+
+
+def knn(test_point, k):
+    target = [0 for item in product_titles]
+    model = KNearestNeighbours(data, target, test_point, k=k)
+    model.fit()
+    max_dist = sorted(model.distances, key=itemgetter(0))[-1]
+    table = list()
+    for i in model.indices:
+        table.append([product_titles[i][0], product_titles[i][2]])
+    return table
 
 
 def recommandation(title, len):
@@ -184,11 +199,17 @@ def homePage():
 def resutl():
     title = request.form['title']
     quantity = request.form['quantity']
-    if title != None and quantity != None:
-        table = recommandation(title, int(quantity) + 1)
-        # str = ""
-        # for item, link in table:
-        #     str = str + f"[{item}]({link})"
+    isKNN = request.form['knn']
+    category = request.form['category']
+    if quantity != None and isKNN != None:
+        if isKNN == 'KNN' and title != '':
+            table = recommandation(title, int(quantity))
+        else:
+            options.append(category)
+            # imdb_score = st.slider('IMDb score:', 1, 10, 8)
+            test_point = [1 if genre in options else 0 for genre in genres]
+            test_point.append(8)
+            table = knn(test_point, int(quantity) + 1)
         return render_template("./table.html", table=table)
     else:
         return render_template("./index.html", listProducts=products, category=genres)
