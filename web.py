@@ -9,7 +9,7 @@ import text_base_lib as lib
 from Classifier import KNearestNeighbours
 from operator import itemgetter
 
-with open(r'titles2.json', 'r+', encoding='utf-8') as f:
+with open(r'titles.json', 'r+', encoding='utf-8') as f:
     product_titles = json.load(f)
 with open(r'data2.json', 'r+', encoding='utf-8') as f:
     data = json.load(f)
@@ -173,7 +173,7 @@ def knn(test_point, k):
     index = 1
     for i in model.indices:
         table.append([product_titles[i][0], product_titles[i]
-                     [2], product_titles[i][1], index])
+                     [2], product_titles[i][3], index])
         index = index + 1
     return table
 
