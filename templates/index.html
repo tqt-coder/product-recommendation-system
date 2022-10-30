@@ -82,6 +82,16 @@
                     <div class="row">
                         <div class="col-md-5 col-sm-12 p-sm-2">
                             <select class="browser-default custom-select dropdown-item text-center w-100 p-2">
+                                <option>----------Model-----------</option>
+                                {% for algorithm in model %}
+                                <option value="{{ algorithm }}" class="text-left py-2 pl-2">
+                                    {{ algorithm }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-5 col-sm-12 p-sm-2">
+                            <select class="browser-default custom-select dropdown-item text-center w-100 p-2">
                                 <option>----------Danh mục-----------</option>
                                 {% for item in category %}
                                 <option value="{{ item }}" class="text-left py-2 pl-2">
@@ -107,12 +117,15 @@
                                 <div class="d-flex justify-content-between pt-2">
                                     <div class="input-group w-auto justify-content-end align-items-center">
                                         <input type="button" value="-"
-                                            class="button-minus border rounded-circle icon-shape icon-sm mx-1 mr-2 d-inline-block"
+                                            class="button-minus border  icon-shape icon-sm mx-1 d-inline-block"
+                                            style="margin-right:0 !important"
                                             data-field="quantity" />
                                         <input type="number" step="1" max="10" value="1" name="quantity"
-                                            class="quantity-field border-0 text-center w-25 text-center" />
+                                            style="height: 2.1rem!important; width: 25%!important;"
+                                            class="border-30 text-center text-center" />
                                         <input type="button" value="+"
-                                            class="button-plus border rounded-circle icon-shape icon-sm lh-0 ml-2 d-inline-block"
+                                            class="button-plus border  icon-shape icon-sm lh-0 d-inline-block"
+                                            style="margin-left:0 !important"
                                             data-field="quantity" />
                                     </div>
                                 </div>
