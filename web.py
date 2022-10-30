@@ -170,13 +170,11 @@ def knn(test_point, k):
     model.fit()
     max_dist = sorted(model.distances, key=itemgetter(0))[-1]
     table = list()
-    listOrder = list()
     index = 1
     for i in model.indices:
-        listOrder.append(index)
-        index = index + 1
         table.append([product_titles[i][0], product_titles[i]
-                     [2], product_titles[i][1]], listOrder)
+                     [2], product_titles[i][1]], index)
+        index = index + 1
     return table
 
 
@@ -192,13 +190,11 @@ def recommandation(title, len):
         top_items_indices.append(str(i[0]))
 
     table = list()
-    listOrder = list()
     index = 1
     for j in top_items_indices:
-        listOrder.append(index)
-        index = index + 1
         table.append([lib.data['name'][int(j)], lib.data['URL']
-                     [int(j)], lib.data['rating'][int(j)], listOrder])
+                     [int(j)], lib.data['rating'][int(j)], index])
+        index = index + 1
     return table
 
 
