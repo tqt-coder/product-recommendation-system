@@ -1,3 +1,4 @@
+from pyexpat import model
 from turtle import title
 from flask import Flask, render_template, request
 from msilib.schema import tables
@@ -154,6 +155,9 @@ genres = ['Accessories',
           'Value & Gift Sets',
           'Wellness',
           'no category']
+models = ['Content-based filtering',
+          'Collaborative filtering',
+        ]
 products = [title[0] for title in product_titles]
 
 
@@ -177,7 +181,7 @@ def recommandation(title, len):
 
 @app.route('/')
 def homePage():
-    return render_template("./index.html", listProducts=products, category=genres)
+    return render_template("./index.html", listProducts=products, category=genres, model=models)
 
 
 @app.route('/recommendation', methods=['POST'])
@@ -191,7 +195,7 @@ def resutl():
         #     str = str + f"[{item}]({link})"
         return render_template("./table.html", table=table)
     else:
-        return render_template("./index.html", listProducts=products, category=genres)
+        return render_template("./index.html", listProducts=products, category=genres, model=models)
 
 
 if __name__ == '__main__':
