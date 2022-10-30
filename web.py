@@ -202,17 +202,24 @@ def homePage():
 def resutl():
     title = request.form['title']
     quantity = request.form['quantity']
-    isKNN = request.form['knn']
+    algorithm = request.form['algorithm']
     category = request.form['category']
-    if quantity != None and isKNN != None:
-        if isKNN == 'KNN' and title != '':
-            table = recommandation(title, int(quantity))
-        else:
-            options.append(category)
-            # imdb_score = st.slider('IMDb score:', 1, 10, 8)
-            test_point = [1 if genre in options else 0 for genre in genres]
-            test_point.append(8)
-            table = knn(test_point, int(quantity) + 1)
+    table = []
+    if algorithm != None:
+        if algorithm == models[0]:
+            table = recommandation(title, int(quantity) + 1)
+        elif algorithm == models[1]:
+            if title != 'None' and category == 'None':
+                listItems = data[products.index(title)]
+                test_point = listItems
+                table = knn(test_point, int(quantity))
+            elif title == 'None' and len(category) != 0:
+                # imdb_score = st.slider('IMDb score:', 1, 10, 8)
+                imdb_score = 8
+                options.append(category)
+                test_point = [1 if genre in options else 0 for genre in genres]
+                test_point.append(imdb_score)
+                table = knn(test_point, int(quantity))
         return render_template("./table.html", table=table)
     else:
         return render_template("./index.html", listProducts=products, category=genres, model=models)
