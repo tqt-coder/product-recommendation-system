@@ -1005,5 +1005,10 @@ icon-shape {
 }
 
 /* Tăng giảm số lượng */
-
+.select_box{
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 /* copyright section end */
