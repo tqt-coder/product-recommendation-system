@@ -6,7 +6,9 @@ body,
 
 .Title {
     text-align: center;
-    color: white
+    color: white;
+    text-transform: uppercase;
+    padding: 20px 0;
 }
 
 table td,
@@ -23,4 +25,15 @@ table th {
     border: 2px solid rgba(255, 255, 255, 0.05);
     background-clip: padding-box;
     box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
+
+.img-logo {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 6%;
+    left: 3%;
+
 }

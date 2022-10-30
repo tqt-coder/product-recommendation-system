@@ -173,7 +173,7 @@ def knn(test_point, k):
     index = 1
     for i in model.indices:
         table.append([product_titles[i][0], product_titles[i]
-                     [2], product_titles[i][1]], index)
+                     [2], product_titles[i][1], index])
         index = index + 1
     return table
 
