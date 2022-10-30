@@ -67,19 +67,19 @@
         <!-- header section start -->
         <div class="header_section">
             <form action="./recommendation" method="post" id="form" class="container">
+                <div class="select_box">
+                    <select class="custom-select text-center w-100 p-2"
+                        name="algorithm">
+                        <option value="None">----------Thuật toán-----------</option>
+                        {% for algorithm in model %}
+                        <option value="{{ algorithm }}" class="text-center py-2 pl-2">
+                            {{ algorithm }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
                 <div class="containt_main">
                     <div class="row">
-                        <div class="col-md-5 col-sm-12 p-sm-2">
-                            <select class="browser-default custom-select dropdown-item text-center w-100 p-2"
-                                name="algorithm">
-                                <option value="None">----------Thuật toán-----------</option>
-                                {% for algorithm in model %}
-                                <option value="{{ algorithm }}" class="text-left py-2 pl-2">
-                                    {{ algorithm }}
-                                </option>
-                                {% endfor %}
-                            </select>
-                        </div>
                         <div class="col-md-5 col-sm-12 p-sm-2">
                             <select class="browser-default custom-select dropdown-item text-center w-100 p-2"
                                 name="category">
