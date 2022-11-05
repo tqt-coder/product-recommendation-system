@@ -81,9 +81,10 @@
                 <div class="containt_main">
                     <div class="row">
                         <div class="col-md-5 col-sm-12 p-sm-2 mr-40">
+                            <input type="text" name="category" id="js-category">
                             <select
                                 class="js-example-basic-multiple browser-default custom-select dropdown-item text-center w-100 p-2"
-                                name="states[]" multiple="multiple">
+                                multiple="multiple">
                                 <option></option>
                                 {% for item in category %}
                                 <option value="{{ item }}" class="text-left py-2 pl-2">
@@ -124,7 +125,7 @@
                         </div>
                     </div>
                     <div class="">
-                        <button type="submit" class="btn btn-secondary" form="form">
+                        <button type="submit" class="btn btn-secondary js-btn" form="form">
                             Dự đoán
                         </button>
                     </div>
@@ -237,10 +238,27 @@
                 placeholder: "Chọn thuật toán",
                 allowClear: true
             });
+
             $(".js-example-placeholder-single-2").select2({
                 placeholder: "Chọn sản phẩm",
                 allowClear: true
             });
+        });
+
+        $('body').on('click', '.js-btn', function (e) {
+            e.preventDefault();
+            var category = [];
+            //Get Text
+            var selected = $('.js-example-basic-multiple').select2("data");
+            for (var i = 0; i <= selected.length - 1; i++) {
+                category.push(selected[i].text.replace(/^\s+|\s+$/gm, ''))
+            }
+
+            const selectCategory = $('#js-category')
+            let jsonCategory = JSON.stringify(category)
+            selectCategory.val(jsonCategory)
+            $('#form').submit();
+
         });
 
 

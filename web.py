@@ -209,19 +209,21 @@ def resutl():
     quantity = request.form['quantity']
     algorithm = request.form['algorithm']
     category = request.form['category']
+
     table = []
     if algorithm != None:
         if algorithm == models[0]:
             table = recommandation(title, int(quantity) + 1)
         elif algorithm == models[1]:
-            if title != 'None' and category == 'None':
+            if title != '' and category == 'None':
                 listItems = data[products.index(title)]
                 test_point = listItems
                 table = knn(test_point, int(quantity))
-            elif title == 'None' and len(category) != 0:
+            elif title == '' and len(category) != 0:
+                options = json.loads(category)
                 # imdb_score = st.slider('IMDb score:', 1, 10, 8)
                 imdb_score = 8
-                options.append(category)
+                # options.append(category)
                 test_point = [1 if genre in options else 0 for genre in genres]
                 test_point.append(imdb_score)
                 table = knn(test_point, int(quantity))
