@@ -215,12 +215,12 @@ def resutl():
         if algorithm == models[0]:
             table = recommandation(title, int(quantity) + 1)
         elif algorithm == models[1]:
-            if title != '' and category == 'None':
+            options = json.loads(category)
+            if title != '' and len(options) == 0:
                 listItems = data[products.index(title)]
                 test_point = listItems
                 table = knn(test_point, int(quantity))
-            elif title == '' and len(category) != 0:
-                options = json.loads(category)
+            elif title == '' and len(options) != 0:
                 # imdb_score = st.slider('IMDb score:', 1, 10, 8)
                 imdb_score = 8
                 # options.append(category)
