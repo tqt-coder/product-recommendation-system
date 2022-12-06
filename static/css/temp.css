@@ -7,6 +7,15 @@ body {
     -o-background-size: cover;
 }
 
+.card {
+    border-radius: 20px;
+}
+
+.card-body {
+    border-radius: 20px;
+    background: #e2dc18 !important;
+}
+
 .container-custom {
     padding: 5px 10px;
     overflow: hidden;
