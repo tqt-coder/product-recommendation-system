@@ -200,7 +200,7 @@ def recommandation(title, len):
 
 @app.route('/')
 def homePage():
-    return render_template("./index.html", listProducts=products, category=genres, model=models)
+    return render_template("./k.html", listProducts=products, category=genres, model=models)
 
 
 @app.route('/recommendation', methods=['POST'])

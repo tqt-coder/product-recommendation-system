@@ -2,224 +2,101 @@
 <html lang="en">
 
 <head>
-    <!-- basic -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- mobile metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
-    <!-- site metas -->
-    <title>Home page</title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <!-- bootstrap css -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommender System</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}" />
-    <!-- style css -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}" />
-    <!-- Responsive-->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/responsive.css') }}" />
-    <!-- fevicon -->
-    <link rel="icon" href="{{ url_for('static',filename='images/fevicon.png') }}" type="image/gif" />
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" type="text/css"
-        href="{{ url_for('static',filename='css/jquery.mCustomScrollbar.min.css') }}" />
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/owl.carousel.min.css') }}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
-        media="screen" />
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/responsive.css') }}" /> -->
+    <link rel="icon" href="{{ url_for('static',filename='images/cart_svg.png') }}" type="image/gif" />
+
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/temp.css') }}">
 </head>
 
 <body>
-    <!-- banner bg main start -->
-    <div class="banner_bg_main">
-        <!-- header top section start -->
-        <div class="container">
-            <div class="header_section_top">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="custom_menu">
-                            <ul>
-                                <li><a href="#">Sản phẩm bán chạy nhất</a></li>
-                                <li><a href="#">Quà tặng</a></li>
-                                <li><a href="#">Sản phẩm mới</a></li>
-                                <li><a href="#">Deal hot hôm nay</a></li>
-                                <li><a href="#">Chăm sóc khách hàng</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- header top section start -->
-        <!-- logo section start -->
-        <div class="logo_section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="logo"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- logo section end -->
-        <!-- header section start -->
-        <div class="header_section">
-            <form action="./recommendation" method="post" id="form" class="container">
-                <div class="select_box">
-                    <select class="js-example-placeholder-single custom-select text-center w-100 p-2" name="algorithm">
-                        <option></option>
-                        {% for algorithm in model %}
-                        <option value="{{ algorithm }}" class="text-center py-2 pl-2">
-                            {{ algorithm }}
-                        </option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="containt_main">
-                    <div class="row">
-                        <div class="col-md-5 col-sm-12 p-sm-2 mr-40">
-                            <input type="text" hidden name="category" id="js-category">
-                            <select
-                                class="js-example-basic-multiple browser-default custom-select dropdown-item text-center w-100 p-2"
-                                multiple="multiple">
+
+    <!-- Page Content -->
+    <div class="container" style="margin-top:200px">
+        <div class="card border-0 shadow my-5">
+            <div class="card-body">
+                <div class="header_section">
+                    <form action="./recommendation" method="post" id="form" class="container">
+                        <div class="select_box">
+                            <select required class="js-example-placeholder-single custom-select text-center w-100 p-2"
+                                name="algorithm">
                                 <option></option>
-                                {% for item in category %}
-                                <option value="{{ item }}" class="text-left py-2 pl-2">
-                                    {{ item }}
+                                {% for algorithm in model %}
+                                <option value="{{ algorithm }}" class="text-center py-2 pl-2">
+                                    {{ algorithm }}
                                 </option>
                                 {% endfor %}
                             </select>
                         </div>
-                        <div class="col-md-5 col-sm-12 p-sm-2 ml-40">
-                            <div class="main m-0">
-                                <div class="input-group-custom">
+                        <div class="containt_main">
+                            <div class="row">
+                                <div class="col-md-5 col-sm-12 p-sm-2 mr-40">
+                                    <input type="text" hidden name="category" id="js-category">
                                     <select
-                                        class="js-example-placeholder-single-2 browser-default custom-select dropdown-item text-center w-100 p-2"
-                                        name="title">
+                                        class="js-example-basic-multiple browser-default custom-select dropdown-item text-center w-100 p-2"
+                                        multiple="multiple">
                                         <option></option>
-                                        {% for product in listProducts %}
-                                        <option value="{{ product }}" class="text-left py-2 pl-2">
-                                            {{ product }}
+                                        {% for item in category %}
+                                        <option value="{{ item }}" class="text-left py-2 pl-2">
+                                            {{ item }}
                                         </option>
                                         {% endfor %}
                                     </select>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="containt_main_active">
-                    <div class="">
-                        <div class="input-group w-auto">
-                            <input type="button" value="-"
-                                class="button-minus border  icon-shape icon-sm mx-1 d-inline-block"
-                                style="margin-right:0 !important" data-field="quantity" />
-                            <input type="number" step="1" max="10" value="1" name="quantity" style=""
-                                class="border-30 text-center text-center" />
-                            <input type="button" value="+"
-                                class="button-plus border  icon-shape icon-sm lh-0 d-inline-block" style=""
-                                data-field="quantity" />
-                        </div>
-                    </div>
-                    <div class="">
-                        <button type="submit" class="btn btn-secondary js-btn" form="form">
-                            Dự đoán
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-
-        <!-- header section end -->
-        <!-- banner section start -->
-        <div class="banner_section layout_padding">
-            <div class="container">
-                <div id="my_slider" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h1 class="banner_taital">
-                                        <br />Hãy chọn sản phẩm yêu thích của bạn
-                                    </h1>
-                                    <div class="buynow_bt"><a href="#">Mua ngay</a>
+                                <div class="col-md-5 col-sm-12 p-sm-2 ml-40">
+                                    <div class="main m-0">
+                                        <div class="input-group-custom">
+                                            <select
+                                                class="js-example-placeholder-single-2 browser-default custom-select dropdown-item text-center w-100 p-2"
+                                                name="title">
+                                                <option></option>
+                                                {% for product in listProducts %}
+                                                <option value="{{ product }}" class="text-left py-2 pl-2">
+                                                    {{ product }}
+                                                </option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h1 class="banner_taital"><br />Website uy tính số 1
-                                    </h1>
-
-                                    <div class="buynow_bt"><a href="#">Mua ngay</a>
-                                    </div>
+                        <div class="containt_main_active">
+                            <div class="">
+                                <div class="input-group w-auto">
+                                    <input type="button" value="-"
+                                        class="button-minus border  icon-shape icon-sm mx-1 d-inline-block"
+                                        style="margin-right:0 !important" data-field="quantity" />
+                                    <input type="number" step="1" min="1" max="10" value="1" name="quantity" style=""
+                                        class="border-30 text-center text-center" />
+                                    <input type="button" value="+"
+                                        class="button-plus border  icon-shape icon-sm lh-0 d-inline-block" style=""
+                                        data-field="quantity" />
                                 </div>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h1 class="banner_taital">
-                                        <br />Sale off cho tất cả sản phẩm
-                                    </h1>
-                                    <div class="buynow_bt"><a href="#">Mua ngay</a>
-                                    </div>
-                                </div>
+                            <div class="">
+                                <button type="submit" class="btn btn-secondary js-btn" form="form">
+                                    Dự đoán
+                                </button>
                             </div>
                         </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
+                    </form>
                 </div>
             </div>
-        </div>
-        <!-- banner section end -->
-    </div>
-
-    <div class="footer_section layout_padding">
-        <div class="container">
-            <!-- <div class="footer_logo"><a href="index.html"><img src="images/footer-logo.png"></a></div> -->
-            <div class="input_bt">
-                <input type="text" class="mail_bt" placeholder="Email của bạn" name="email" />
-                <span class="subscribe_bt" id="basic-addon2"><a href="#">Subscribe</a></span>
-            </div>
-            <div class="footer_menu">
-                <ul>
-                    <li><a href="#">Sản phẩm bán chạy nhất</a></li>
-                    <li><a href="#">Quà tặng</a></li>
-                    <li><a href="#">Sản phẩm mới</a></li>
-                    <li><a href="#">Deal hot hôm nay</a></li>
-                    <li><a href="#">Chăm sóc khách hàng</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- footer section end -->
-    <!-- copyright section start -->
-    <div class="copyright_section">
-        <div class="container">
-            <p class="copyright_text">
-                @2022 Tiểu luận chuyên ngành Kỹ thuật dữ liệu
-            </p>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-    <script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}" defer></script>
-    <script src="{{ url_for('static',filename='js/plugin.js') }}" defer></script>
-    <!-- sidebar -->
-    <script src="{{ url_for('static',filename='js/jquery.mCustomScrollbar.concat.min.js') }}" defer></script>
-    <script src="{{ url_for('static',filename='js/custom.js') }}" defer></script>
     <script defer>
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
