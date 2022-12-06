@@ -11,7 +11,7 @@ from operator import itemgetter
 
 with open(r'titles.json', 'r+', encoding='utf-8') as f:
     product_titles = json.load(f)
-with open(r'data2.json', 'r+', encoding='utf-8') as f:
+with open(r'data.json', 'r+', encoding='utf-8') as f:
     data = json.load(f)
 
 app = Flask(__name__)
