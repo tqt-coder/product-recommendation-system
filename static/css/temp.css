@@ -72,11 +72,13 @@ body {
 
 .result_title {
     display: inline-block;
+    color: #000;
+    font-size: 20px;
 }
 
 .result_id {
-    font-size: 16px;
-    color: rgb(236, 40, 40);
+    font-size: 18px;
+    color: red;
     font-style: italic;
     font-weight: bold;
 

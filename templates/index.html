@@ -36,6 +36,11 @@
                         </div>
                     </div>
                 </div>
+                {% if msg %}
+                <div class="result_title"><b>Lỗi:</b></div>
+                <span class="result_id">{{ msg }}</span>
+                <hr>
+                {% endif %}
                 <div class="header_section">
                     <form action="./recommendation" method="post" id="form" class="container">
                         <div class="select_box">

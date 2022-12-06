@@ -211,15 +211,20 @@ def resutl():
     category = request.form['category']
 
     table = []
-    if algorithm != None:
+    if algorithm != '':
         if algorithm == models[0]:
-            table = recommandation(title, int(quantity) + 1)
+            if title == '':
+                ex = "Vui lòng chọn sản phẩm khi dùng thuật toán Content-based filtering"
+                return render_template("./index.html", listProducts=products, category=genres, model=models, msg=ex)
+            else:
+                table = recommandation(title, int(quantity) + 1)
         elif algorithm == models[1]:
             options = json.loads(category)
             if title != '' and len(options) == 0:
                 listItems = data[products.index(title)]
                 test_point = listItems
                 table = knn(test_point, int(quantity))
+                return render_template("./table.html", table=table)
             elif title == '' and len(options) != 0:
                 # imdb_score = st.slider('IMDb score:', 1, 10, 8)
                 imdb_score = 8
@@ -227,9 +232,13 @@ def resutl():
                 test_point = [1 if genre in options else 0 for genre in genres]
                 test_point.append(imdb_score)
                 table = knn(test_point, int(quantity))
-        return render_template("./table.html", table=table)
+                return render_template("./table.html", table=table)
+            else:
+                ex = "Với thuật toán Collaborative filtering chỉ có thể chọn sản phẩm hoặc chọn danh mục sản phẩm "
+                return render_template("./index.html", listProducts=products, category=genres, model=models, msg=ex)
     else:
-        return render_template("./index.html", listProducts=products, category=genres, model=models)
+        ex = "Chưa chọn thuật toán"
+        return render_template("./index.html", listProducts=products, category=genres, model=models, msg=ex)
 
 
 if __name__ == '__main__':
