@@ -218,6 +218,7 @@ def resutl():
                 return render_template("./index.html", listProducts=products, category=genres, model=models, msg=ex)
             else:
                 table = recommandation(title, int(quantity) + 1)
+                return render_template("./table.html", table=table)
         elif algorithm == models[1]:
             options = json.loads(category)
             if title != '' and len(options) == 0:
