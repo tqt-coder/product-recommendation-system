@@ -42,9 +42,10 @@
                 <hr>
                 {% endif %}
                 <div class="header_section">
-                    <form action="./recommendation" method="post" id="form" class="container">
+                    <form action="./recommendation" method="post" id="form" class="container form-predict">
                         <div class="select_box">
-                            <select required class="js-example-placeholder-single custom-select text-center w-100 p-2"
+                            <select required
+                                class="js-example-placeholder-single custom-select text-center w-100 p-2 js-example-placeholder-single__algorithm"
                                 name="algorithm">
                                 <option></option>
                                 {% for algorithm in model %}
@@ -59,7 +60,7 @@
                                 <div class="col-md-5 col-sm-12 p-sm-2 mr-40">
                                     <input type="text" hidden name="category" id="js-category">
                                     <select
-                                        class="js-example-basic-multiple browser-default custom-select dropdown-item text-center w-100 p-2"
+                                        class="js-example-basic-multiple browser-default custom-select dropdown-item text-center w-100 p-2 js-example-basic-multiple__category"
                                         multiple="multiple">
                                         <option></option>
                                         {% for item in category %}
@@ -73,7 +74,7 @@
                                     <div class="main m-0">
                                         <div class="input-group-custom">
                                             <select
-                                                class="js-example-placeholder-single-2 browser-default custom-select dropdown-item text-center w-100 p-2"
+                                                class="js-example-placeholder-single-2 browser-default custom-select dropdown-item text-center w-100 p-2 js-example-placeholder-single-2__product"
                                                 name="title">
                                                 <option></option>
                                                 {% for product in listProducts %}
@@ -157,7 +158,25 @@
 
         });
 
+        const collaborative = "Collaborative filtering";
+        const contentBased = "Content-based filtering";
+        $(".js-example-placeholder-single__algorithm").change(function (e) {
+            let userOption = $(".js-example-placeholder-single__algorithm").val();
+            if (userOption === contentBased) {
+                $('.js-example-basic-multiple__category').prop('disabled', true);
+            } else {
+                $('.js-example-basic-multiple__category').prop('disabled', false);
+                // $('.js-example-basic-multiple__category').change(function (e) {
+                //     $('.js-example-placeholder-single-2__product').prop('disabled', true);
+                // })
 
+                // $('.js-example-placeholder-single-2__product').change(function (e) {
+                //     $('.js-example-basic-multiple__category').prop('disabled', true);
+                //     // $('.js-example-placeholder-single-2__product').prop('disabled', true);
+
+                // })
+            }
+        });
     </script>
 </body>
 
